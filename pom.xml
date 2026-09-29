@@ -91,7 +91,8 @@
         <dependency>
             <groupId>dev.jda</groupId>
             <artifactId>domain-models</artifactId>
-            <version>0.0.12</version>
+            <version>0.0.13</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- Spring Security        -->
@@ -123,6 +124,7 @@
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
