@@ -2,7 +2,7 @@ FROM eclipse-temurin:25-jre-resolute
 
 WORKDIR /backend-api
 
-COPY target/*.jar app.jar
+COPY target/backend-api-*.jar app.jar
 
 ENV SERVER_PORT=8081
 
