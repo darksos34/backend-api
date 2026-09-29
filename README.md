@@ -18,7 +18,7 @@ Spring Boot REST API service for managing application features, users, and profi
 - **Documentation**: SpringDoc OpenAPI 3.0.0 (Swagger UI)
 - **Object Mapping**: MapStruct 1.6.3 & Lombok 1.18.38
 - **Security**: Spring Security & JJWT 0.12.6
-- **Shared DTO Library**: [Domain Models](https://github.com/darksos34/domain-models) (`dev.jda:domain-models:0.0.14`)
+- **Shared DTO Library**: [Domain Models](https://github.com/darksos34/domain-models) (`dev.jda:domain-models:0.0.15`)
 - **Containerization**: Docker (Eclipse Temurin 25 JRE)
 
 ---
