@@ -1,4 +1,4 @@
-FROM eclipse-temurin:25-jre-resolute
+FROM eclipse-temurin:25-jre
 
 WORKDIR /backend-api
 
