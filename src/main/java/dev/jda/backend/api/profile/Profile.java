@@ -1,23 +1,19 @@
 package dev.jda.backend.api.profile;
 
 import dev.jda.backend.api.user.User;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -44,17 +40,14 @@ public class Profile {
     @Column(length = 15)
     private String type;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<User> users;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @PrePersist
     public void prePersist() {
-        this.uuid = UUID.randomUUID().toString();
+        if (uuid == null) {
+            uuid = UUID.randomUUID().toString();
+        }
     }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    @ToString.Exclude
-    private User user;
-
 }
