@@ -19,15 +19,15 @@ public class ProfileRepresentationAssembler
 
     @Override
     public ProfileDTO toModel(Profile profile) {
-
         ProfileDTO dto = profileMapper.toDto(profile);
 
-        dto.add(
-                linkTo(
-                        methodOn(ProfileController.class)
-                                .getProfileByUuid(profile.getUuid())
-                ).withSelfRel()
-        );
+        var selfLink = linkTo(
+                methodOn(ProfileController.class)
+                        .getProfileByUuid(profile.getUuid())
+        ).withSelfRel();
+
+        dto.setUrl(selfLink.getHref());
+        dto.add(selfLink);
 
         return dto;
     }
