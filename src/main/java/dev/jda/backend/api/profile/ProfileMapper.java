@@ -1,22 +1,32 @@
 package dev.jda.backend.api.profile;
 
 import dev.jda.domain.models.ProfileDTO;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
-public interface ProfileMapper {
+@Component
+public class ProfileMapper {
 
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(source = "uuid", target = "uuid")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "name", target = "name")
-    ProfileDTO toDto(Profile profile);
+    public ProfileDTO toDto(Profile profile) {
+        if (profile == null) {
+            return null;
+        }
 
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(source = "uuid", target = "uuid")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "name", target = "name")
-    Profile toEntity(ProfileDTO dto);
+        return ProfileDTO.builder()
+                .uuid(profile.getUuid())
+                .name(profile.getName())
+                .code(profile.getCode())
+                .build();
+    }
+
+    public Profile toEntity(ProfileDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        return Profile.builder()
+                .uuid(dto.getUuid())
+                .name(dto.getName())
+                .code(dto.getCode())
+                .build();
+    }
 }

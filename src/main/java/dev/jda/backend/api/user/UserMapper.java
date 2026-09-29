@@ -1,22 +1,32 @@
 package dev.jda.backend.api.user;
 
 import dev.jda.domain.models.UserDTO;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = "spring")
-public interface UserMapper {
+@Component
+public class UserMapper {
 
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(source = "uuid", target = "uuid")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "name", target = "name")
-    UserDTO toDto(User user);
+    public UserDTO toDto(User user) {
+        if (user == null) {
+            return null;
+        }
 
-    @BeanMapping(ignoreByDefault = true)
-    @Mapping(source = "uuid", target = "uuid")
-    @Mapping(source = "code", target = "code")
-    @Mapping(source = "name", target = "name")
-    User toEntity(UserDTO dto);
+        return UserDTO.builder()
+                .uuid(user.getUuid())
+                .name(user.getName())
+                .code(user.getCode())
+                .build();
+    }
+
+    public User toEntity(UserDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        return User.builder()
+                .uuid(dto.getUuid())
+                .name(dto.getName())
+                .code(dto.getCode())
+                .build();
+    }
 }
