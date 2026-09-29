@@ -1,0 +1,59 @@
+package dev.jda.backend.api.user;
+
+import dev.jda.backend.api.common.exception.GlobalExceptionHandler.CodeExistsExceptionHandler;
+import dev.jda.domain.models.UserDTO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequiredArgsConstructor
+@RestController
+public class UserController implements UserApi {
+
+    private final UserService userService;
+    private final UserMapper userMapper;
+    private final UserRepresentationAssembler userRepresentationAssembler;
+    private final PagedResourcesAssembler<User> pagedResourcesAssembler;
+
+    @Override
+    public UserDTO getUserByCode(String code) {
+        return userRepresentationAssembler.toModel(userService.getUserByCode(code));
+    }
+
+    @Override
+    public UserDTO getUserByUuid(String uuid) {
+        return userRepresentationAssembler.toModel(userService.getUserByUuid(uuid));
+    }
+
+    @Override
+    @SuppressWarnings(value = "unchecked")
+    public PagedModel<UserDTO> getAllUserrsPageable(Pageable pageable) {
+        Page<User> userPage = userService.getAllUserrsPageable(pageable);
+        if (!userPage.isEmpty()) {
+            return (PagedModel<UserDTO>) pagedResourcesAssembler.toEmptyModel(userPage, UserDTO.class);
+        }
+        return pagedResourcesAssembler.toModel(userPage, userRepresentationAssembler);
+    }
+
+    @Override
+    public UserDTO createUser(UserDTO userDTO) throws CodeExistsExceptionHandler {
+        User user = userMapper.toEntity(userDTO);
+        return userRepresentationAssembler.toModel(userService.createUser(user));
+    }
+
+    @Override
+    public UserDTO patchUserByUuid(String uuid, UserDTO userDTO) {
+        User user = userMapper.toEntity(userDTO);
+        return userRepresentationAssembler.toModel(userService.patchUserByUuid(uuid, user));
+    }
+
+    @Override
+    public void deleteUserByUuid(String uuid) {
+        userService.deleteUserByUuid(uuid);
+    }
+}
+
+
