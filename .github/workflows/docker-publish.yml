@@ -48,4 +48,5 @@ jobs:
           tags: |
             ghcr.io/darksos34/backend-api:0.0.4
             ghcr.io/darksos34/backend-api:0.0.5
+            ghcr.io/darksos34/backend-api:0.0.6
             ghcr.io/darksos34/backend-api:latest

@@ -11,7 +11,7 @@
 
     <groupId>dev.jda</groupId>
     <artifactId>backend-api</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <name>backend-api</name>
     <description>Spring Boot REST API service for managing application features and integrations.</description>
     <properties>

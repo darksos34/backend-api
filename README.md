@@ -6,7 +6,7 @@ Spring Boot REST API service for managing application features, users, and profi
 <b>Created:</b> 04-05-2025<br>
 <b>Last updated:</b> 29-09-2026<br>
 
-[![](https://img.shields.io/badge/Spring%20Boot-4.1.1-8A2BE2)]() [![](https://img.shields.io/badge/Java-25-ED8B00)]() [![](https://img.shields.io/badge/release-Sep%2029,%202026-blue)]() [![](https://img.shields.io/badge/backend--api-0.0.5-blue)]() [![](https://img.shields.io/badge/domain--models-0.0.14-green)]()
+[![](https://img.shields.io/badge/Spring%20Boot-4.1.1-8A2BE2)]() [![](https://img.shields.io/badge/Java-25-ED8B00)]() [![](https://img.shields.io/badge/release-Sep%2029,%202026-blue)]() [![](https://img.shields.io/badge/backend--api-0.0.6-blue)]() [![](https://img.shields.io/badge/domain--models-0.0.15-green)]()
 
 ---
 
@@ -178,7 +178,7 @@ mvn clean spring-boot:run
 ### Build Docker Image
 
 ```bash
-docker build -t ghcr.io/darksos34/backend-api:0.0.5 .
+docker build -t ghcr.io/darksos34/backend-api:0.0.6 .
 ```
 
 ### Run with Docker Compose
