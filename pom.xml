@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dev.jda</groupId>
-    <artifactId>api-library</artifactId>
+    <artifactId>backend-api</artifactId>
     <version>0.0.4</version>
-    <name>api-library</name>
-    <description>api-library</description>
+    <name>backend-api</name>
+    <description>Spring Boot REST API service for managing application features and integrations.</description>
     <properties>
         <java.version>25</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
@@ -21,7 +21,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/darksos34/api-library</url>
+            <url>https://maven.pkg.github.com/darksos34/backend-api</url>
         </repository>
     </distributionManagement>
     <dependencies>
@@ -90,7 +90,7 @@
         <!--Jordy Coder Model Library imported-->
         <dependency>
             <groupId>dev.jda</groupId>
-            <artifactId>model-library</artifactId>
+            <artifactId>domain-models</artifactId>
             <version>0.0.8</version>
         </dependency>
 
@@ -162,7 +162,7 @@
     <repositories>
         <repository>
             <id>github</id>
-            <url>https://maven.pkg.github.com/darksos34/model-library</url>
+            <url>https://maven.pkg.github.com/darksos34/domain-models</url>
         </repository>
     </repositories>
 </project>

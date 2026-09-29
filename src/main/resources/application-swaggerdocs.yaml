@@ -1,6 +1,6 @@
 api:
   info:
-    title: api-library
+    title: backend-api
     version: '@project.version'
     description: |
-      Here is the description of the api-library application.
+      Here is the description of the backend-api application.

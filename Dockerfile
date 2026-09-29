@@ -1,6 +1,6 @@
 FROM eclipse-temurin:25-jre-resolute
 
-WORKDIR /api-library
+WORKDIR /backend-api
 
 COPY target/*.jar app.jar
 
