@@ -16,7 +16,6 @@
     <description>Spring Boot REST API service for managing application features and integrations.</description>
     <properties>
         <java.version>25</java.version>
-        <mapstruct.version>1.6.3</mapstruct.version>
     </properties>
     <distributionManagement>
         <repository>
@@ -85,14 +84,14 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
+            <version>1.6.3</version>
         </dependency>
 
         <!--Jordy Coder Model Library imported-->
         <dependency>
             <groupId>dev.jda</groupId>
             <artifactId>domain-models</artifactId>
-            <version>0.0.13</version>
+            <version>0.0.14</version>
             <scope>compile</scope>
         </dependency>
 
@@ -153,7 +152,7 @@
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>${mapstruct.version}</version>
+                            <version>1.6.3</version>
                         </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
